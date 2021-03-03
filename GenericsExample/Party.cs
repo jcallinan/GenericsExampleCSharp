@@ -9,7 +9,8 @@ namespace GenericsExample
     public class Party<T> where T : IAnimal
     {
         private List<T> _members;
-        public T Leader { get; private set; }        public Party(T leader)
+        public T Leader { get; private set; }
+        public Party(T leader)
         {
             this.Leader = leader;
             this._members = new List<T>();
