@@ -22,10 +22,16 @@ namespace OOPGameExample
                 switch (option)
                 {
                     case 1:
-                        Console.WriteLine("You win!");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.WriteLine("You win! Hit Enter to finish!");
                         Goal.GoalAttained = true;
+
+                        Console.ReadLine();
                         break;
                     case 2:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.BackgroundColor = ConsoleColor.White;
                         Console.WriteLine("Enemy Appears!");
                         Enemy badGuy = new Enemy();
                         badGuy.EnemyName = "Baddy";
@@ -34,7 +40,30 @@ namespace OOPGameExample
                         Console.WriteLine("You got hit! you now have " + newPlayer.PlayerHealth + " health points");
                         break;
                     case 3:
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Black;
                         Console.WriteLine("You see a dark corridor. Keep moving.");
+                        break;
+                    case 4:
+                        // Let's go through all Console colors and set them as foreground  
+                        foreach (ConsoleColor color in Enum.GetValues(typeof(ConsoleColor)))
+                        {
+                            Console.ForegroundColor = color;
+                            Console.Clear();
+                            Console.WriteLine("Foreground color set to " + color);
+                        }
+                        Console.WriteLine("=====================================");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        // Let's go through all Console colors and set them as background  
+                        foreach (ConsoleColor color in Enum.GetValues(typeof(ConsoleColor)))
+                        {
+                            Console.BackgroundColor = color;
+                            Console.WriteLine("Background color set to " + color);
+                        }
+                        Console.WriteLine("=====================================");
+                        // Restore original colors  
+                        Console.ResetColor();
+                        Console.ReadKey();
                         break;
                 }
 
